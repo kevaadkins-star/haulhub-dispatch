@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: haulhub-dispatch-api
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: cd backend && npm ci && npm run build
+    startCommand: cd backend && node dist/index.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "3001"
+      - key: JWT_SECRET
+        generateValue: true
