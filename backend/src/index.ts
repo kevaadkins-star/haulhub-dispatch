@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import { config } from './config';
+import { initDb } from './services/db';
 import authRoutes from './routes/auth';
 import userRoutes from './routes/user';
 import complianceRoutes from './routes/compliance';
@@ -12,7 +13,7 @@ import messageRoutes from './routes/messages';
 const app = express();
 
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: '*',
   credentials: true
 }));
 
@@ -30,6 +31,8 @@ app.get('/health', (req, res) => {
   res.json({ status: 'ok' });
 });
 
-app.listen(config.port, () => {
-  console.log(`Server is running on port ${config.port}`);
+initDb().then(() => {
+  app.listen(config.port, () => {
+    console.log(`Server is running on port ${config.port}`);
+  });
 });
