@@ -8,6 +8,9 @@ export interface AuthRequest extends Request {
     email: string;
     role: string;
   };
+  params: any;
+  query: any;
+  body: any;
 }
 
 export const authenticateJWT = (req: AuthRequest, res: Response, next: NextFunction) => {

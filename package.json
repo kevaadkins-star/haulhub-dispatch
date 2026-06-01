@@ -1,7 +1,0 @@
-{
-  "name": "haulhub-dispatch",
-  "scripts": {
-    "build": "cd backend && npm install && npx tsc",
-    "start": "cd backend && node dist/index.js"
-  }
-}
