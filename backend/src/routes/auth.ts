@@ -2,8 +2,8 @@ import express from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { v4 as uuidv4 } from 'uuid';
-import { query, escape } from '../services/db.js';
-import { config } from '../config.js';
+import { query, escape } from '../services/db';
+import { config } from '../config';
 
 const router = express.Router();
 

@@ -1,13 +1,13 @@
 import express from 'express';
 import cors from 'cors';
-import { config } from './config.js';
-import authRoutes from './routes/auth.js';
-import userRoutes from './routes/user.js';
-import complianceRoutes from './routes/compliance.js';
-import dispatchRoutes from './routes/dispatch.js';
-import carrierRoutes from './routes/carriers.js';
-import dispatcherRoutes from './routes/dispatchers.js';
-import messageRoutes from './routes/messages.js';
+import { config } from './config';
+import authRoutes from './routes/auth';
+import userRoutes from './routes/user';
+import complianceRoutes from './routes/compliance';
+import dispatchRoutes from './routes/dispatch';
+import carrierRoutes from './routes/carriers';
+import dispatcherRoutes from './routes/dispatchers';
+import messageRoutes from './routes/messages';
 
 const app = express();
 

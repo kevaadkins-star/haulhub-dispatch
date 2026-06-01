@@ -1,7 +1,7 @@
 import express from 'express';
 import { v4 as uuidv4 } from 'uuid';
-import { authenticateJWT, AuthRequest } from '../middleware/auth.js';
-import { query, escape } from '../services/db.js';
+import { authenticateJWT, AuthRequest } from '../middleware/auth';
+import { query, escape } from '../services/db';
 
 const router = express.Router();
 
