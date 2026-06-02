@@ -1,13 +1,14 @@
-import { Request, Response, NextFunction } from 'express';
+import { Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import { config } from '../config';
 
-export interface AuthRequest extends Request {
+export interface AuthRequest {
   user?: {
     id: string;
     email: string;
     role: string;
   };
+  headers: any;
   params: any;
   query: any;
   body: any;
@@ -21,13 +22,13 @@ export const authenticateJWT = (req: AuthRequest, res: Response, next: NextFunct
 
     jwt.verify(token, config.jwtSecret, (err: any, user: any) => {
       if (err) {
-        return res.sendStatus(403);
+        return res.status(403).json({ error: 'Forbidden' });
       }
 
       req.user = user as any;
       next();
     });
   } else {
-    res.sendStatus(401);
+    res.status(401).json({ error: 'Unauthorized' });
   }
 };
